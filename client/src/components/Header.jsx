@@ -4,7 +4,6 @@ import userPicture from "../assets/react.svg";
 import { Link } from "react-router-dom";
 
 const Header = () => {
-  const [login, setLogin] = useState(false);
   return (
     <nav className="flex justify-between items-center px-10 py-4 bg-slate-300 ">
       <Link to="/">
@@ -29,15 +28,12 @@ const Header = () => {
         <Link to="/about">
           <li className="font-light hover:font-normal cursor-pointer">About</li>
         </Link>
-        {login ? (
+        <Link to="/signup">
           <li className="font-light hover:font-normal cursor-pointer">
-            Signout
+            Signup
           </li>
-        ) : (
-          <li className="font-light hover:font-normal cursor-pointer">
-            Signin
-          </li>
-        )}
+        </Link>
+
         <Link to="/profile">
           <li className="bg-white rounded-full p-1">
             <img src={userPicture} />
