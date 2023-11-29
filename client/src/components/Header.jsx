@@ -2,8 +2,10 @@ import React, { useState } from "react";
 import { FaSearch } from "react-icons/fa";
 import userPicture from "../assets/react.svg";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 const Header = () => {
+  const { currentUser } = useSelector((state) => state.user);
   return (
     <nav className="flex justify-between items-center px-10 py-4 bg-slate-300 ">
       <Link to="/">
@@ -28,16 +30,17 @@ const Header = () => {
         <Link to="/about">
           <li className="font-light hover:font-normal cursor-pointer">About</li>
         </Link>
-        <Link to="/signup">
-          <li className="font-light hover:font-normal cursor-pointer">
-            Signup
-          </li>
-        </Link>
 
         <Link to="/profile">
-          <li className="bg-white rounded-full p-1">
-            <img src={userPicture} />
-          </li>
+          {currentUser ? (
+            <li className="bg-white rounded-full p-1">
+              <img src={userPicture} />
+            </li>
+          ) : (
+            <li className="font-light hover:font-normal cursor-pointer">
+              Signin
+            </li>
+          )}
         </Link>
       </ul>
     </nav>
