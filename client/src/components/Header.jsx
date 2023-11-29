@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { FaSearch } from "react-icons/fa";
-import userPicture from "../assets/react.svg";
+import userPicture from "../assets/profile.png";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 
@@ -33,8 +33,8 @@ const Header = () => {
 
         <Link to="/profile">
           {currentUser ? (
-            <li className="bg-white rounded-full p-1">
-              <img src={userPicture} />
+            <li className="bg-white rounded-full">
+              <img src={userPicture} className="object-contain h-12 w-12 rounded-full"/>
             </li>
           ) : (
             <li className="font-light hover:font-normal cursor-pointer">
